@@ -1,0 +1,22 @@
+{
+  "name": "nuts",
+  "version": "1.0.0",
+  "description": "A simple demo app using Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leo-hydraulic/nuts.git"
+  },
+  "author": "Leonardo Mesquita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leo-hydraulic/nuts/issues"
+  },
+  "homepage": "https://github.com/leo-hydraulic/nuts#readme",
+  "devDependencies": {
+    "electron": "^26.2.2"
+  }
+}
