@@ -256,7 +256,7 @@
 
             <h1 id="title">Nuts</h1>
 
-            <span id="version">Version <span>1.1.2</span></span>
+            <span id="version">Version <span>1.1.3</span></span>
 
             <div id="pane-win">
                 
@@ -264,22 +264,36 @@
                 <!-- Windows -->
                 
                     <a href="https://github.com/leo-hydraulic/nuts/releases/latest/download/nuts.exe" class="download-button" download>
-                        <svg width="2em" height="2em" viewBox="0 0 256 315" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
+                        <svg width="2em" height="2em" viewBox="0 0 256 315" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
                             <g transform="translate(0,30)">
-                                <path d="M0,36.3573818 L104.619084,22.1093454 L104.664817,123.02292 L0.0955693151,123.618411 L0,36.3573818 Z M104.569248,134.650129 L104.650452,235.651651 L0.0812046021,221.274919 L0.0753414539,133.972642 L104.569248,134.650129 Z M117.25153,20.2454506 L255.967753,6.21724894e-15 L255.967753,121.739477 L117.25153,122.840723 L117.25153,20.2454506 Z M256,135.599959 L255.96746,256.791232 L117.251237,237.213007 L117.056874,135.373055 L256,135.599959 Z" />
+                                <path d="M0,36.3573818 L104.619084,22.1093454 L104.664817,123.02292 L0.0955693151,123.618411 L0,36.3573818 Z M104.569248,134.650129 L104.650452,235.651651 L0.0812046021,221.274919 L0.0753414539,133.972642 L104.569248,134.650129 Z M117.25153,20.2454506 L255.967753,6.21724894e-15 L255.967753,121.739477 L117.25153,122.840723 L117.25153,20.2454506 Z M256,135.599959 L255.96746,256.791232 L117.251237,237.213007 L117.056874,135.373055 L256,135.599959 Z"/>
                             </g>
                         </svg>
                         <span>Install and launch</span>
                     </a>
+                
+                <div id="win-amd64">
+                    
+                        <p class="smaller-fonts" style="line-height: 200%" id="windows-download-options">
+                            <span id="amd-title">Intel: &nbsp;&nbsp;</span>
+                            <a href="https://github.com/leo-hydraulic/nuts/releases/latest/download/nuts-1.1.3-windows-amd64.zip" download>Download .zip</a> &nbsp;&nbsp;
+                            <a href="https://github.com/leo-hydraulic/nuts/releases/latest/download/nuts-1.1.3.x64.msix" download>Download .msix</a> &nbsp;&nbsp;
+                            <a href="https://github.com/leo-hydraulic/nuts/releases/latest/download/nuts.appinstaller" download>Download .appinstaller</a>
+                        </p>
+                    
 
-                    <p class="smaller-fonts" style="line-height: 200%" id="windows-download-options">
-                        <a href="https://github.com/leo-hydraulic/nuts/releases/latest/download/nuts-1.1.2-windows-amd64.zip" download>Download .zip</a> &nbsp;&nbsp;
-                        <a href="https://github.com/leo-hydraulic/nuts/releases/latest/download/nuts-1.1.2.x64.msix" download>Download .msix</a> &nbsp;&nbsp;
-                        <a href="https://github.com/leo-hydraulic/nuts/releases/latest/download/nuts.appinstaller" download>Download .appinstaller</a>
-                    </p>
+                    
+                </div>
+
                 
 
-                
+                <!-- Windows ARM -->
+                <div id="win-aarch64">
+                    
+
+                    
+                </div>
 
                 
 
@@ -373,6 +387,32 @@
                     let el = document.getElementById("mac-amd64");
                     if (el)
                         el.style = "display: none";
+                }
+            } else if (os == "win") {
+                
+                var hasWinArm = false;
+                if (arch == "aarch64" && hasWinArm) {
+                    let el = document.getElementById("win-amd64");
+                    if (el) {
+                        el.style = "display: none";
+                        let title = document.getElementById("arm-title");
+                        if (title) title.style = "display: none";
+                        let zipTitle = document.getElementById("winzip-arm-title");
+                        if (zipTitle) zipTitle.style = "display: none";
+                        let divider = document.getElementById("win-divider");
+                        if (divider) divider.style = "display: none";
+                    }
+                } else if (arch == "amd64" || !hasWinArm) {
+                    let el = document.getElementById("win-aarch64");
+                    if (el) {
+                        el.style = "display: none";
+                        let title = document.getElementById("amd-title");
+                        if (title) title.style = "display: none";
+                        let zipTitle = document.getElementById("winzip-amd-title");
+                        if (zipTitle) zipTitle.style = "display: none";
+                        let divider = document.getElementById("win-divider");
+                        if (divider) divider.style = "display: none";
+                    }
                 }
             }
         }
