@@ -1,6 +1,23 @@
 module.exports = {
   packagerConfig: {
     asar: true,
+    osxSign: {
+      identity: 'Foo',
+      identityValidation: false,
+      optionsForFile: (filePath) => {
+        return {
+          hardenedRuntime: false,
+        };
+      }
+    },
+    appBundleId: 'org.example.nuts',
+    ignore: [
+      '/conveyor.conf$',
+      '/output($|/)',
+      '\\.zip$',
+      '\\.tgz$',
+      '\\.p12$',
+    ],
   },
   rebuildConfig: {},
   makers: [
